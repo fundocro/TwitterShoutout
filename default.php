@@ -30,7 +30,7 @@
 
 <!-- Enter twitter name -->			
             <form id="new_flw"><!--twitter id here !-->
-                Your Twitter Name: <input id="inp1" onkeyup="countChar2(this)" type="text" name="fname" placeholder="@YourTwitterNameHere" /><br>
+                Your Twitter Name: <input id="inp1" onkeyup="countChar2(this)" type="text" name="fname" placeholder="@YourTwitterNameHere" value="@" /><br>
             </form>
 			
 
@@ -45,7 +45,7 @@ Example:(copy/paste your message here)
             <div id="charNum"></div>
 			
 <!-- Submit button  -->			
-            <button id="send" onclick="save_name()" ></button>
+            <button id="send" onclick="save_name()"></button>
            
             <!--<input id="new_flw" type="submit" value="submit" autofocus="autofocus">!-->
 		</div><!--end nlist-->
@@ -114,17 +114,22 @@ div,#mix{margin-left:60px;margin-top:5px;float:left;clear:left;}
                 if (len > 140) {
                     window.alert("Max 140 characters");
                     val.value = val.value.substring(0, 140);
+					
                 } else {
                     $('#charNum').text(140 - len);
+					
                 }
+				
             };
 			//Twitter name length
             function countChar2(val) {
                 var len1 = val.value.length;
-                if (len1 > 15) {
-                    window.alert("Max 15 characters");
-                    val.value = val.value.substring(0, 15);
-                }
+				
+				if (len1 > 15){
+					window.alert("Max 15 characters");
+					val.value = val.value.substring(0, 15);
+				}
+			
             };
 			
 		
@@ -144,6 +149,7 @@ div,#mix{margin-left:60px;margin-top:5px;float:left;clear:left;}
 				xmlhttp.onreadystatechange=function(){
 				
 					if(xmlhttp.readyState==4){
+					//return text messages
 						document.getElementById('hst1').innerHTML=xmlhttp.responseText;
 						
 					}
