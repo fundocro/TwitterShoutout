@@ -6,12 +6,11 @@ $phptmessage = $_GET['tt'];
 if((strlen($phptname)>4)&&$phptmessage != ""){
 	
 	//echo strlen($phptname)."<br />";
-	//$dbc=mysqli_connect("localhost","root","") or die('Problem with connection');
-	$dbc=mysqli_connect("localhost:3306","screamou_fundo","stark1") or die('Problem with connection');
+	//Local connection using xampp:
+	$dbc=mysqli_connect("localhost","root","") or die('Problem with connection');
 	mysqli_select_db($dbc,'screamou_shoutout');
-	//$conn = mysqli_connect("mysql12.000webhost.com", "a9747047_fundo","stark1stark","screamou_shoutout") or die(mysql_error());
+
 	
-	//$dbc=mysqli_connect('a9747047_db1',"mysql12.000webhost.com","a9747047_fundo","stark1stark") or die('Problem with connection');
 	$query2=mysqli_query($dbc,"SELECT * FROM shoutoutusers WHERE TwitterName='".$phptname."'");
 	$query3=mysqli_query($dbc,"SELECT * FROM shoutoutusers ");
 	
@@ -35,7 +34,7 @@ if((strlen($phptname)>4)&&$phptmessage != ""){
 	}else{// if the name entered and name in db dont match:
 		mysqli_query($dbc,"INSERT INTO shoutoutusers (TwitterName,Tweet,Date) VALUES('$phptname','$phptmessage',NOW())");
 		echo "Welcome ".$phptname."<br />";
-		echo "Your message has been successfully saved for review!".'<br />';
+		echo "Your message has been successfully saved!".'<br />';
 		echo "".'<br />';	
 	}
 }else{

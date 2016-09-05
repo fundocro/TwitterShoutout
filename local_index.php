@@ -155,8 +155,8 @@ div,#mix{margin-left:60px;margin-top:5px;float:left;clear:left;}
 					}
 				}
 				
-				
-				url="save_name.php?inp1="+tname+"& tt="+tmessage;
+				url="local_save_name.php?inp1="+tname+"& tt="+tmessage;
+				//url="save_name.php?inp1="+tname+"& tt="+tmessage;
 				
 				xmlhttp.open("GET",url,true);
 				xmlhttp.send();
