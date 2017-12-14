@@ -13,4 +13,4 @@ Make 4 fields in this order (case sensitive): id  - integer(11), AUTO_INCREMENT,
                                                Date -   datetime
                                               Tweet - tinytext
                                               
-  Live example running here: http://www.screamout.net/
+
